@@ -7,16 +7,22 @@ body {
 }
 
 .dont-panic{
-    padding-top: 145pt;
-    padding-left: 40%;    
-    text-align: center;
-    color: red;
-    font-family: "Don't Panic", sans-serif;
-    font-size: 72pt;
+    border:solid red; 
+    padding-bottom: 69%; 
+}
+
+.wrapper{
+    padding-left: 38%;
+    padding-top: 15%;
+    padding-right: 38%;
 }
 
 .dont-panic-text{
+    position: absolute;
+    left: 39%;
+    top: 20%;
+    font-size: 600%;
+    font-family: "Raleway";
+    color: red;
     
-    width: 230pt;
-    border: solid red;
 }
