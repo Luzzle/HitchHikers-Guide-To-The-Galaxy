@@ -2,9 +2,21 @@
 
 }
 
+body {
+    background-color: #29203f;
+}
+
 .dont-panic{
+    padding-top: 145pt;
+    padding-left: 40%;    
     text-align: center;
     color: red;
     font-family: "Don't Panic", sans-serif;
     font-size: 72pt;
+}
+
+.dont-panic-text{
+    
+    width: 230pt;
+    border: solid red;
 }
