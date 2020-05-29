@@ -26,3 +26,18 @@ body {
     color: red;
     
 }
+
+
+.button-wrapper{
+    padding-top:4%;
+    text-align:center;
+}
+
+.luz-button{
+    background: none;
+    border:solid red 1pt;
+    cursor: pointer;
+    color: Red;
+    font-size: 20pt;
+    
+}
