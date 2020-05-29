@@ -1,6 +1,4 @@
-.main{
 
-}
 
 body {
     background-color: #29203f;
@@ -13,14 +11,14 @@ body {
 
 .wrapper{
     padding-left: 38%;
-    padding-top: 15%;
+    padding-top: 10%;
     padding-right: 38%;
 }
 
 .dont-panic-text{
     position: absolute;
     left: 39%;
-    top: 20%;
+    top: 9%;
     font-size: 600%;
     font-family: "Raleway";
     color: red;
@@ -38,6 +36,20 @@ body {
     border:solid red 1pt;
     cursor: pointer;
     color: Red;
-    font-size: 20pt;
-    
+    font-size: 20pt;    
 }
+
+.title{
+    text-align: center;
+    color: red;
+    font-family: "Raleway";
+    font-size: 30pt;
+}
+
+.entry-text{
+    text-align: center;
+    color: red;
+    font-family: "Raleway";
+    font-size: 15pt;
+}
+
