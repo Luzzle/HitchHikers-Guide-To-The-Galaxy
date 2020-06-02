@@ -34,8 +34,6 @@ function getEntries(){
         newButton.id = TestEntry[i].Id
         newButton.innerText = TestEntry[i].Title
         newButton.setAttribute("class", "luz-button")
-        // newButton.addEventListener('click', loadEntryPage(TestEntry[i].Id))
-
         document.getElementById("entries-section").appendChild(newButton)
         document.getElementById("entries-section").appendChild(lnbreak)
         document.getElementById("entries-section").appendChild(lnbreak2)
