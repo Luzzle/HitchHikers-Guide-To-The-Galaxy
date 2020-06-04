@@ -1,20 +1,4 @@
-var TestEntry = [{
-    Id: "TheEarth",
-    Title: "The Earth",
-    Data: "Mostly Harmless"
-}, {
-    Id: "TheUniverse",
-    Title: "The Universe",
-    Data: "Big"
-},{
-    Id: "TrissyPoo",
-    Title: "Tristan Hardiman",
-    Data: "Smol"
-},{
-    Id: "JohnCena",
-    Title: "BigGay",
-    Data: "Very Big"
-}]
+
 var firebaseConfig = {
     apiKey: "AIzaSyCSrKiVbg_cMJ9CMCHO_DNJQyjVgHHgIlk",
     authDomain: "hhttg-d0c23.firebaseapp.com",
