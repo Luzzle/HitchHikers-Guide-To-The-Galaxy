@@ -1,58 +1,98 @@
 var TestEntry = [{
-    "Id": "TestEntry",
-    "Title": "The Earth",
-    "Data": "Mostly Harmless"
+    Id: "TheEarth",
+    Title: "The Earth",
+    Data: "Mostly Harmless"
 }, {
-    "Id": "TestEntry2",
-    "Title": "The Universe",
-    "Data": "Big"
+    Id: "TheUniverse",
+    Title: "The Universe",
+    Data: "Big"
 },{
-    "Id": "TestEntry3",
-    "Title": "Tristan Hardiman",
-    "Data": "Smol"
+    Id: "TrissyPoo",
+    Title: "Tristan Hardiman",
+    Data: "Smol"
+},{
+    Id: "JohnCena",
+    Title: "BigGay",
+    Data: "Very Big"
 }]
+var firebaseConfig = {
+    apiKey: "AIzaSyCSrKiVbg_cMJ9CMCHO_DNJQyjVgHHgIlk",
+    authDomain: "hhttg-d0c23.firebaseapp.com",
+    databaseURL: "https://hhttg-d0c23.firebaseio.com",
+    projectId: "hhttg-d0c23",
+    storageBucket: "hhttg-d0c23.appspot.com",
+    messagingSenderId: "990294893505",
+    appId: "1:990294893505:web:3b39f4901d133f944e4540",
+    measurementId: "G-BB5RQNY7QL"
+};
+
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
+var database = firebase.database()
+
+
+function databaseTest(){
+    database.ref('TestNode/Test Value').once('value').then(function(snapshot){
+        console.log(snapshot.val())
+    })
+}
 
 function loadEntry(){
-    for (i = 0; i < TestEntry.length; i++){
-        if (TestEntry[i].Id == localStorage.getItem("SelectedEntry")){
-            document.getElementById("entry-title").innerText = TestEntry[i].Title
-            document.getElementById("entry-text").innerText = TestEntry[i].Data
-        }
-    }
+    database.ref('Entries').once('value').then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+            if (childSnapshot.val().ID == localStorage.getItem("SelectedEntry")){
+                document.getElementById("entry-title").innerText = childSnapshot.val().Title
+                document.getElementById("entry-text").innerText = childSnapshot.val().Data
+                document.title = "The Hitchhikers Guide To The Galaxy - " + childSnapshot.val().Title
+            }
+        })
+    })
+
+    
 }   
 
+function createEntry(){
+    var newID = document.getElementById('newID').value
+    var newTitle = document.getElementById('newTitle').value
+    var newData = document.getElementById('newData').value
 
-function LoadIntoMemory(){
+    database.ref(`Entries/${newID}`).set({
+        ID: newID,
+        Title: newTitle,
+        Data: newData
+    })
+
+    alert("Entry Added Successfully, The Universe thanks you!")
+    window.location.assign("entries.html")
+}
+
+function LoadIntoMemory() {
     window.localStorage.setItem("SelectedEntry", "TestEntry")
 }
 
-function getEntries(){
-    for (i = 0; i < TestEntry.length; i++){
-        var newButton = document.createElement("button")
-        var lnbreak = document.createElement("br")
-        var lnbreak2 = document.createElement("br")
-        newButton.id = TestEntry[i].Id
-        newButton.innerText = TestEntry[i].Title
-        newButton.setAttribute("class", "luz-button")
-        // newButton.addEventListener('click', loadEntryPage(TestEntry[i].Id))
-
-        document.getElementById("entries-section").appendChild(newButton)
-        document.getElementById("entries-section").appendChild(lnbreak)
-        document.getElementById("entries-section").appendChild(lnbreak2)
-
-        
-    }
+function getEntries() {
+    var html = ''
+    var entryID = ''
+    database.ref(`Entries/`).once('value').then(function(snapshot){
+        snapshot.forEach(function(childSnapshot){
+            entryID = childSnapshot.val().ID
+            console.log(childSnapshot.val())
+            html += `<button class="luz-button" onClick="loadEntryPage(${childSnapshot.val().ID})" id="${childSnapshot.val().ID}">${childSnapshot.val().Title}</button>`
+        })
+        document.getElementById('entries-section').innerHTML = html
+    })
 }
 
+function loadEntryPage(entryID) {
+    var entry = entryID.id
 
-function loadEntryPage(entryID){
-    
-    for (i = 0; i < TestEntry.length; i++){
-        if (TestEntry[i].Id == entryID){
-            window.localStorage.setItem("SelectedEntry", entryID)
+    database.ref(`Entries/${entry}`).once('value').then(function(snapshot){
+        if (snapshot.val().ID == entry){
+            window.localStorage.setItem('SelectedEntry', entry)
             window.location.assign("entry.html")
         }else{
             console.log("No Entry Loaded!")
-        }
-    }
+        }  
+    })
 }

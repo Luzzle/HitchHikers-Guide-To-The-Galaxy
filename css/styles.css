@@ -18,8 +18,8 @@ body {
 .dont-panic-text{
     position: absolute;
     left: 39%;
-    top: 9%;
-    font-size: 600%;
+    top: 7%;
+    font-size: 850%;
     font-family: "Raleway";
     color: red;
     
@@ -36,7 +36,10 @@ body {
     border:solid red 1pt;
     cursor: pointer;
     color: Red;
-    font-size: 20pt;    
+    font-size: 20pt; 
+    margin: 12px;
+    padding: 6px;
+    min-width: 230px;
 }
 
 .title{
@@ -44,6 +47,7 @@ body {
     color: red;
     font-family: "Raleway";
     font-size: 30pt;
+    text-decoration: underline;
 }
 
 .entry-text{
@@ -53,3 +57,34 @@ body {
     font-size: 15pt;
 }
 
+.luz-input{
+    height: 25pt;
+    width: 500pt;
+    background-color: #432348;
+    border-color: black;
+}
+
+.luz-input:focus{
+    outline-width: 0pt;
+}
+
+.luz-wrap{
+    text-align: center;
+}
+
+.luz-text{
+    font-family: "Raleway";
+    font-size: 20pt;
+    color: red;
+}
+
+.multiline{
+    height: 200pt;
+    border: 1.5pt black solid;
+}
+
+.but{
+    font-family: "Raleway";
+    font-size: 18pt;
+    border: red solid 2pt;
+}

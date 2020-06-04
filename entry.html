@@ -2,17 +2,21 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/styles.css">
-        <script src="js/entry.js"></script>
-        
-        <title>{Entry Name} - The Hitchhikers Guide To The Galaxy</title>
+        <link rel="stylesheet" href="css/styles.css">        
+        <title>Loading Entry... - The Hitchhikers Guide To The Galaxy</title>
     </head>
     <body onload="loadEntry()">
         <div class="title-section">
-            <p id="entry-title" class="title">{Entry Name}</p>
+            <p id="entry-title" class="title">Loading Entry...</p>
         </div>
         <div>
-            <p id="entry-text" class="entry-text">{Entry Text}</p>
+            <p id="entry-text" class="entry-text">Loading Entry...</p>
         </div>
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+         <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+         <script src="js/entry.js"></script>
+
     </body>
 </html>

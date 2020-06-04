@@ -3,16 +3,27 @@
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/styles.css">
-        <title>Entries - The Hitchhikers Guide To The Galaxy</title>
+        <title>Add Entry - The Hitchhikers Guide To The Galaxy</title>
     </head>
-    <body onload='getEntries()'>
-        <p class="title">List Of Entries</p>
-        <div id="entries-section"></div>
+    <body>
+        <p class="title">Add Entry</p>
+        <br/>
+        <br/>
+        <div class="luz-wrap">
+            <p class="luz-text">ID</p>
+            <input id="newID" type="text" class="luz-input">
+            <p class="luz-text">Title</p>
+            <input id="newTitle" type="text" class="luz-input">
+            <p class="luz-text">Data</p>
+            <textarea id="newData" class="luz-input multiline"></textarea>
+            <br/>
+            <br/>
+            <button class="luz-button" onclick="createEntry()">Create Post</button>
+        </div>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
         <script src="js/entry.js"></script>
-        
     </body>
 </html>
